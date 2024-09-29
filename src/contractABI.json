@@ -1,5 +1,23 @@
 [
 	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_specialization",
+				"type": "string"
+			}
+		],
+		"name": "addDoctor",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -9,27 +27,21 @@
 				"type": "address"
 			},
 			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "doctorName",
-				"type": "string"
+				"indexed": true,
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
 			},
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "date",
+				"name": "dateTime",
 				"type": "uint256"
 			},
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "time",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amountPaid",
+				"name": "appointmentId",
 				"type": "uint256"
 			}
 		],
@@ -39,23 +51,13 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "_doctorName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_speciality",
-				"type": "string"
+				"internalType": "address",
+				"name": "_doctor",
+				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "_date",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_time",
+				"name": "_dateTime",
 				"type": "uint256"
 			}
 		],
@@ -72,11 +74,6 @@
 				"type": "string"
 			},
 			{
-				"internalType": "uint256",
-				"name": "_age",
-				"type": "uint256"
-			},
-			{
 				"internalType": "string",
 				"name": "_sex",
 				"type": "string"
@@ -88,11 +85,11 @@
 			},
 			{
 				"internalType": "string",
-				"name": "_contact",
+				"name": "_contactInfo",
 				"type": "string"
 			}
 		],
-		"name": "saveUserDetails",
+		"name": "register",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -111,28 +108,30 @@
 				"internalType": "string",
 				"name": "name",
 				"type": "string"
-			},
+			}
+		],
+		"name": "UserRegistered",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "appointmentCounter",
+		"outputs": [
 			{
-				"indexed": false,
 				"internalType": "uint256",
-				"name": "age",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "UserDetailsSaved",
-		"type": "event"
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [
 			{
-				"internalType": "address",
+				"internalType": "uint256",
 				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
+				"type": "uint256"
 			}
 		],
 		"name": "appointments",
@@ -143,28 +142,13 @@
 				"type": "address"
 			},
 			{
-				"internalType": "string",
-				"name": "doctorName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "speciality",
-				"type": "string"
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "date",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "time",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amountPaid",
+				"name": "dateTime",
 				"type": "uint256"
 			}
 		],
@@ -175,13 +159,37 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "_user",
+				"name": "",
 				"type": "address"
 			},
 			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "doctors",
+		"outputs": [
+			{
 				"internalType": "string",
-				"name": "_doctorName",
+				"name": "name",
 				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "specialization",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_appointmentId",
+				"type": "uint256"
 			}
 		],
 		"name": "getAppointment",
@@ -194,32 +202,17 @@
 						"type": "address"
 					},
 					{
-						"internalType": "string",
-						"name": "doctorName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "speciality",
-						"type": "string"
+						"internalType": "address",
+						"name": "doctor",
+						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "date",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "time",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountPaid",
+						"name": "dateTime",
 						"type": "uint256"
 					}
 				],
-				"internalType": "struct Medico.Appointment",
+				"internalType": "struct TeleHealth.Appointment",
 				"name": "",
 				"type": "tuple"
 			}
@@ -238,29 +231,36 @@
 		"name": "getUserDetails",
 		"outputs": [
 			{
-				"internalType": "string",
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "sex",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "bloodGroup",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "contactInfo",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct TeleHealth.User",
 				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
+				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",
@@ -282,11 +282,6 @@
 				"type": "string"
 			},
 			{
-				"internalType": "uint256",
-				"name": "age",
-				"type": "uint256"
-			},
-			{
 				"internalType": "string",
 				"name": "sex",
 				"type": "string"
@@ -298,13 +293,13 @@
 			},
 			{
 				"internalType": "string",
-				"name": "contact",
+				"name": "contactInfo",
 				"type": "string"
 			},
 			{
-				"internalType": "address",
-				"name": "userAddress",
-				"type": "address"
+				"internalType": "bool",
+				"name": "exists",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",

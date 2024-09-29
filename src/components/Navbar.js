@@ -1,17 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css'; // Create a separate CSS file for Navbar styles
+// Navbar.js
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ account, connectWallet }) => {
   return (
     <nav className="navbar">
-      <ul className="navbar-list">
-        <li className="navbar-item"><Link to="/">Home</Link></li>
-        <li className="navbar-item"><Link to="/login">Login</Link></li>
-        <li className="navbar-item"><Link to="/signup">Sign Up</Link></li>
-        <li className="navbar-item"><Link to="/forgot-password">Forgot Password</Link></li>
-        <li className="navbar-item"><Link to="/about">About</Link></li>
-      </ul>
+      <div className="container">
+        <Link to="/" className="navbar-brand">Medical dApp</Link>
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/doctors">Doctors</Link></li>
+          <li><Link to="/my_appointments">My Appointments</Link></li>
+          <li><Link to="/profile">Profile</Link></li>
+        </ul>
+        <div className="wallet-button">
+          {account ? (
+            <span>Connected: {account.substring(0, 6)}...{account.substring(account.length - 4)}</span>
+          ) : (
+            <button onClick={connectWallet}>Connect Wallet</button>
+          )}
+        </div>
+      </div>
     </nav>
   );
 };

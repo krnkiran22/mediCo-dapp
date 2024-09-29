@@ -1,9 +1,50 @@
-.app {
-  font-family: 'Arial', sans-serif; /* Or your preferred font */
-  background-color: #f8f9fa; /* Light background color */
-  min-height: 100vh; /* Full viewport height */
-  padding: 20px; /* Padding for spacing */
-  color: #333; /* Dark text for readability */
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Add additional styles for other components as necessary */
+.navbar {
+  background-color: #007bff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.wallet-button button {
+  background-color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wallet-button span {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.home, .about, .doctors, .my-appointments, .profile {
+  padding: 20px;
+  text-align: center;
+}
